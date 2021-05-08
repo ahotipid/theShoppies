@@ -38,6 +38,7 @@ app.checkInput = () => {
         e.preventDefault();
         const userInput = document.querySelector('input').value;
         app.search(userInput);
+        app.resultsUl.scrollIntoView();
     })
 }
 
@@ -49,9 +50,13 @@ app.displayResults = (resultsArray,userInput) => {
         const {Poster, Title, Year} = movie;
         
         const movieList = document.createElement('li');
-        movieList.classList.add('movie')
+        movieList.classList.add('movie');
 
-        const contentDiv = document.createElement('div')
+        const contentDiv = document.createElement('div');
+        contentDiv.classList.add('contentContainer');
+        const imgDiv = document.createElement('div');
+        imgDiv.classList.add('imageContainer');
+
         const movieImage = document.createElement('img');
         movieImage.src = Poster;
         movieImage.alt = Title;
@@ -60,7 +65,7 @@ app.displayResults = (resultsArray,userInput) => {
         movieTitle.textContent = `${Title} (${Year})`;
 
         const nominateButton = document.createElement('button');
-        nominateButton.textContent = 'Nominate';
+        nominateButton.textContent = 'nominate';
         nominateButton.classList.add('nominate');
         nominateButton.id = index;
 
@@ -73,14 +78,15 @@ app.displayResults = (resultsArray,userInput) => {
             });
         }
 
+        //append element to display
+        imgDiv.appendChild(movieImage);
         contentDiv.appendChild(movieTitle);
         contentDiv.appendChild(nominateButton);
 
-        movieList.appendChild(movieImage);
+        movieList.appendChild(imgDiv);
         movieList.appendChild(contentDiv);
 
         app.resultsUl.appendChild(movieList);
-        
         
     });
 }

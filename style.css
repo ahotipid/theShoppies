@@ -6,52 +6,159 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
+/* font-family: 'Limelight', cursive;
+font-family: 'Raleway', sans-serif; */
 html {
     font-size: 125%;
 }
-
+body {
+    background-color: lightgrey;
+    padding: 40px 0;
+    font-family: 'Raleway', sans-serif;
+}
 .wrapper {
     width: 85%;
     max-width: 1200px;
     margin: 0 auto;
 }
-
+h1,
+h2,
+h3,
 ul {
     margin: 0;
     padding: 0;
+}
+h1 {
+    font: 3rem 'Limelight', cursive;
+}
+h2 {
+    font-size: 1.2rem;
+}
+h3,
+p{
+    font-size: 0.8rem;
+}
+ul {
     list-style-type: none;
 }
-
+img {
+    display: block;
+    width: 100%;
+}
 main {
     display: flex;
+    align-items: flex-start;
 }
-
-section {
-    width: 50%;
+form {
+    background-color: ivory;
+    padding: 20px;
+    margin: 30px 0 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 3px;
+}
+label,
+input,
+button {
     padding: 10px;
+    font-size: 1rem;
+    font-family: 'Raleway', sans-serif;
+}
+button {
+    background-color: sandybrown;
+    margin-top: 10px;
+    border: none;
+    border-radius: 3px;
+}
+button:hover:enabled {
+    box-shadow: 0 0 10px black;
+}
+button:disabled {
+    background-color: lightgrey;
+    color: ivory;
+}
+section {
+    min-height: 100px;
+    width: 50%;
+    padding: 20px;
+    background-color: ivory;
+    border-radius: 3px;
+}
+section:first-child{
+    margin-right: 10px;
+}
+section:last-child {
+    margin-left: 10px;
 }
 .movie {
     display: flex;
     margin: 10px 0;
 }
-.movie img {
-    width: 150px;
+.movie .imageContainer {
+    width: 140px;
+    flex-shrink: 0;
     border: 4px solid gray;
 }
-.movie div {
-    padding: 40px;
+.movie .contentContainer {
+    padding: 20px;
 }
 
 .nominationsList li {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left: 25px;
+    position: relative;
+}
+.nominationsList li::before {
+    content: '🎬';
+    position: absolute;
+    left: -5px;
 }
 
 .banner {
-    visibility: hidden;
+    color: ivory;
+    background-color: tomato;
+    border-radius: 3px;
+    padding: 10px;
+    margin-top: 10px;
+    display: none;
+}
+.banner p:first-child{
+    text-align: center;
+}
+.banner p:last-child{
+    font-size: 1rem;
 }
 
 .banner.active {
-    visibility: visible;
+    display: block;
+}
+
+
+@media (max-width:768px) {
+    main {
+        flex-direction: column-reverse;
+    }
+    section {
+        width: 100%;
+    }
+    section:first-child{
+        margin-top: 20px;
+        margin-right: 0px;
+    }
+    section:last-child {
+        margin-left: 0px;
+    }
+}
+
+@media (max-width:502px) {
+    h1 {
+        font-size: 2rem;
+    }
+}
+@media (max-width:340px) {
+    h1 {
+        font-size: 1.5rem;
+    }
 }

@@ -1,33 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Raleway&display=swap" rel="stylesheet">
     <title>The Shoppie</title>
 </head>
+
 <body>
     <header class="wrapper">
         <h1>The Shoppies</h1>
         <form action="">
-            <label for="searchMovie">Movie Title</label>
+            <label for="searchMovie"><h2>Movie title</h2></label>
             <input type="text" id="searchMovie">
         </form>
     </header>
     <main class="wrapper">
         <section class="searchResults">
-            <h2>results for <span class="searchParameter"></span></h2>
+            <h2>Results for <span class="searchParameter"></span></h2>
             <ul class="resultsList"></ul>
         </section>
         <section class="nominations">
             <h2>Nominations</h2>
             <ul class="nominationsList"></ul>
             <div id="banner" class="banner">
-                <p>🌟Thank you for your nomination. You have reached the maximum of 5 nomination.🏆🌟</p>
+                <p>🌟🏆🌟</p>
+                <p>Thank you for your nomination. You have reached the maximum of 5 nomination.</p>
+                
             </div>
         </section>
     </main>
     <script src="./app.js"></script>
 </body>
+
 </html>
