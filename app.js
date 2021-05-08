@@ -64,6 +64,15 @@ app.displayResults = (resultsArray,userInput) => {
         nominateButton.classList.add('nominate');
         nominateButton.id = index;
 
+        //check if movie match with movie in nomination list. if so, then disable the button
+        if (app.nominationsList.children.length > 0){
+            [... app.nominationsList.children].forEach( (list) => {
+                if (list.children[0].textContent === movieTitle.textContent) {
+                    nominateButton.setAttribute('disabled',true);
+                };
+            });
+        }
+
         contentDiv.appendChild(movieTitle);
         contentDiv.appendChild(nominateButton);
 
@@ -71,6 +80,7 @@ app.displayResults = (resultsArray,userInput) => {
         movieList.appendChild(contentDiv);
 
         app.resultsUl.appendChild(movieList);
+        
         
     });
 }
@@ -88,7 +98,7 @@ app.nominate = () => {
                 //append to  nominations list
                 app.displayNominations(nominateMovie);
                 //disable the button if that movie is nominated
-                button.setAttribute("disabled",true)
+                button.setAttribute('disabled',true)
             } else {
                 alert("You have 5 nominations already");
             } 
@@ -113,7 +123,8 @@ app.displayNominations = (movie) => {
     //append li to ul
     app.nominationsList.appendChild(nominatedMovie);
     if (app.nominationsList.children.length === 5) {
-        alert("Thank you for your nomination! You've reach the maximum of 5 nominations")
+        const banner = document.querySelector('#banner');
+        banner.classList.add('active');
     }
 }
 
@@ -123,6 +134,16 @@ app.removeNomination = () => {
         if (e.target.tagName === "BUTTON") {
             //remove the nomination
             this.removeChild(e.target.parentElement);
+
+            //enable nominate button back to that movie
+            //check if movie match with movie in the results list. if so, then enable the nomination button
+            const removedTitle = e.target.parentElement.children[0].textContent;
+            [...app.resultsUl.children].forEach( (list) => {
+                const title = list.children[1].children[0].textContent;
+                if (removedTitle===title) {
+                    list.children[1].children[1].removeAttribute('disabled');
+                }
+            });
         }
     });
 }

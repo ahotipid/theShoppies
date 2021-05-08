@@ -28,6 +28,7 @@ main {
 
 section {
     width: 50%;
+    padding: 10px;
 }
 .movie {
     display: flex;
@@ -45,4 +46,12 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.banner {
+    visibility: hidden;
+}
+
+.banner.active {
+    visibility: visible;
 }
