@@ -82,12 +82,9 @@ app.displayResults = (resultsArray,userInput) => {
         imgDiv.appendChild(movieImage);
         contentDiv.appendChild(movieTitle);
         contentDiv.appendChild(nominateButton);
-
         movieList.appendChild(imgDiv);
         movieList.appendChild(contentDiv);
-
         app.resultsUl.appendChild(movieList);
-        
     });
 }
 
@@ -129,8 +126,8 @@ app.displayNominations = (movie) => {
     //append li to ul
     app.nominationsList.appendChild(nominatedMovie);
     if (app.nominationsList.children.length === 5) {
-        const banner = document.querySelector('#banner');
-        banner.classList.add('active');
+        app.banner = document.querySelector('#banner');
+        app.banner.classList.add('active');
     }
 }
 
@@ -150,6 +147,8 @@ app.removeNomination = () => {
                     list.children[1].children[1].removeAttribute('disabled');
                 }
             });
+            //remove banner
+            app.banner.classList.remove('active');
         }
     });
 }
