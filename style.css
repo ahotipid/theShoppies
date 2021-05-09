@@ -22,8 +22,8 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    background: linear-gradient(-45deg, var(--smokyBlack), var(--olive), var(--field), var(--olive),var(--smokyBlack));
-    background-size: 400% 400%;
+    background: linear-gradient(-45deg, var(--smokyBlack), var(--field), var(--olive), var(--field),var(--smokyBlack));
+    background-size: 300% 400%;
     animation: background 35s ease infinite;
     color: var(--smokyBlack);
     padding: 40px 0;
@@ -55,6 +55,7 @@ ul {
 h1 {
     font: 3rem 'Limelight', cursive;
     color: var(--camel);
+    text-shadow: 0 0 5px var(--olive), 0 0 10px var(--camel);
 }
 h2 {
     font-size: 1.2rem;
@@ -228,7 +229,6 @@ section:last-child {
     font-weight: bold;
 }
 .closeButton {
-    color: black;
     cursor: pointer;
 }
 /* modal becomes visible */

@@ -176,6 +176,7 @@ app.removeNomination = () => {
 
 //function to pop up modal box when users try to add more than 5
 app.modalBox = () => {
+    app.nominationsSection.scrollIntoView();
     const modalAlert = document.getElementById('alert');
     modalAlert.classList.add('activate');
     const closeButton = document.getElementById('closeButton');
