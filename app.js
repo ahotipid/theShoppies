@@ -10,6 +10,7 @@ app.resultsSection = document.querySelector('section.searchResults');
 app.nominationsSection = document.querySelector('section.nominations');
 //search for movie base on user input
 app.search = (userInput) => {
+    app.resultsUl.innerHTML= '';
     app.displayLoader();
     const url = new URL(app.apiUrl);
     url.search = new URLSearchParams({
