@@ -8,13 +8,37 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 
 /* font-family: 'Limelight', cursive;
 font-family: 'Raleway', sans-serif; */
+:root {
+    --smokyBlack :#100A0A;
+    --olive: #322D10;
+    --field: #6C5624;
+    --camel : #B59856;
+    --flax : #E7D490;
+    --redCarpet :#722128;
+}
+
 html {
     font-size: 125%;
+    scroll-behavior: smooth;
 }
 body {
-    background-color: lightgrey;
+    background: linear-gradient(-45deg, var(--smokyBlack), var(--olive), var(--field), var(--olive),var(--smokyBlack));
+    background-size: 400% 400%;
+    animation: background 35s ease infinite;
+    color: var(--smokyBlack);
     padding: 40px 0;
     font-family: 'Raleway', sans-serif;
+}
+@keyframes background {
+    0% {
+        background-position-x: 0%;
+    }
+    50% {
+        background-position-x: 100%;
+    }
+    100% {
+        background-position-x: 0%;
+    }
 }
 .wrapper {
     width: 85%;
@@ -30,6 +54,7 @@ ul {
 }
 h1 {
     font: 3rem 'Limelight', cursive;
+    color: var(--camel);
 }
 h2 {
     font-size: 1.2rem;
@@ -50,7 +75,7 @@ main {
     align-items: flex-start;
 }
 form {
-    background-color: ivory;
+    background-color: var(--flax);
     padding: 20px;
     margin: 30px 0 20px;
     display: flex;
@@ -65,23 +90,25 @@ button {
     font-family: 'Raleway', sans-serif;
 }
 button {
-    background-color: sandybrown;
+    color: var(--camel);
+    background-color: var(--olive);
     margin-top: 10px;
     border: none;
     border-radius: 3px;
 }
 button:hover:enabled {
-    box-shadow: 0 0 10px black;
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--olive);
 }
 button:disabled {
-    background-color: lightgrey;
-    color: ivory;
+    background-color: var(--camel);
+    color: var(--flax);
 }
 section {
     min-height: 100px;
     width: 50%;
     padding: 20px;
-    background-color: ivory;
+    background-color: var(--flax);
     border-radius: 3px;
 }
 section:first-child{
@@ -97,7 +124,7 @@ section:last-child {
 .movie .imageContainer {
     width: 140px;
     flex-shrink: 0;
-    border: 4px solid gray;
+    border: 4px solid var(--field);
 }
 .movie .contentContainer {
     padding: 20px;
@@ -117,8 +144,8 @@ section:last-child {
 }
 
 .banner {
-    color: ivory;
-    background-color: tomato;
+    color: var(--flax);
+    background-color: var(--redCarpet);
     border-radius: 3px;
     padding: 10px;
     margin-top: 10px;
@@ -148,7 +175,7 @@ section:last-child {
     background-color: rgb(0,0,0,0.6);
 }
 .alertContent {
-    background-color: tomato;
+    background-color: var(--redCarpet);
     border-radius: 3px;
     margin: 30vh auto;
     width: 50%;
@@ -164,7 +191,7 @@ section:last-child {
 }
 .alertContent .alertText,
 .alertContent .closeButton {
-    color: ivory;
+    color: var(--flax);
     font-size: 1.2rem;
     text-align: center;
     padding: 10px;
