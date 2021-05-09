@@ -2,7 +2,7 @@ const app = {};
 
 ///////////////get results from API and display as a list //////////////
 app.apiKey = `5b496702`;
-app.apiUrl = `http://www.omdbapi.com/`;
+app.apiUrl = `https://www.omdbapi.com/`;
 app.spanElement = document.querySelector('span.searchParameter');
 app.resultsUl = document.querySelector('ul.resultsList');
 app.nominationsList = document.querySelector('ul.nominationsList');
