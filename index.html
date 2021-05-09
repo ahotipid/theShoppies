@@ -29,7 +29,12 @@
     </header>
     <main class="wrapper">
         <section class="searchResults">
-            <h2>Results for <span class="searchParameter"></span></h2>
+            <h2>Results <span class="searchParameter"></span></h2>
+            <!-- loader -->
+            <div id="loader" class="loader">
+                <div id="wheel" class="wheel"></div>
+                <p>loading</p>
+            </div>
             <!-- dynamic list goes in this ul -->
             <ul class="resultsList"></ul>
         </section>

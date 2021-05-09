@@ -6,9 +6,11 @@ app.apiUrl = `http://www.omdbapi.com/`;
 app.spanElement = document.querySelector('span.searchParameter');
 app.resultsUl = document.querySelector('ul.resultsList');
 app.nominationsList = document.querySelector('ul.nominationsList');
-
+app.resultsSection = document.querySelector('section.searchResults');
+app.nominationsSection = document.querySelector('section.nominations');
 //search for movie base on user input
 app.search = (userInput) => {
+    app.displayLoader();
     const url = new URL(app.apiUrl);
     url.search = new URLSearchParams({
         // search parameter
@@ -17,18 +19,35 @@ app.search = (userInput) => {
         type : `movie`,
         r :`json`
       });
-
+    
     fetch(url)
         .then(res=>res.json())
         .then((json) => {
+            app.hideLoader();
             if (json.Response === 'True') {
                 const movieResults  = json.Search;
                 app.displayResults(movieResults,userInput)
             } else {
-                app.spanElement.textContent = `"${userInput}"`;
+                app.spanElement.textContent = `for "${userInput}"`;
                 app.resultsUl.innerHTML = `<h4>no results found</h4>`;
             }
         })
+}
+
+//function to display loader
+app.displayLoader = () => {
+    app.loader = document.querySelector('#loader');
+    app.wheel = document.querySelector('#wheel');
+    app.loader.classList.add('display');
+    app.wheel.classList.add('spin');
+    setTimeout(() => {
+        app.hideLoader();
+    }, 3000);
+}
+//function to hide loader
+app.hideLoader = () => {
+    app.loader.classList.remove('display');
+    app.wheel.classList.remove('spin');
 }
 
 //keep and eye on change of the input and search
@@ -38,13 +57,13 @@ app.checkInput = () => {
         e.preventDefault();
         const userInput = document.querySelector('input').value;
         app.search(userInput);
-        app.resultsUl.scrollIntoView();
+        app.resultsSection.scrollIntoView();
     })
 }
 
 //display results to page
 app.displayResults = (resultsArray,userInput) => {
-    app.spanElement.textContent = `"${userInput}"`;
+    app.spanElement.textContent = `for "${userInput}"`;
     app.resultsUl.innerHTML= '';
     resultsArray.forEach( (movie,index) => {
         const {Poster, Title, Year} = movie;
@@ -103,7 +122,7 @@ app.nominate = () => {
                 //disable the button if that movie is nominated
                 button.setAttribute('disabled',true)
                 //scroll to view nominations list
-                app.nominationsList.scrollIntoView();
+                app.nominationsSection.scrollIntoView();
             } else {
                 app.modalBox();
             } 
@@ -157,6 +176,7 @@ app.removeNomination = () => {
 
 //function to pop up modal box when users try to add more than 5
 app.modalBox = () => {
+    app.nominationsSection.scrollIntoView();
     const modalAlert = document.getElementById('alert');
     modalAlert.classList.add('activate');
     const closeButton = document.getElementById('closeButton');
