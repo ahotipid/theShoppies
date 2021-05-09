@@ -102,6 +102,8 @@ app.nominate = () => {
                 app.displayNominations(nominateMovie);
                 //disable the button if that movie is nominated
                 button.setAttribute('disabled',true)
+                //scroll to view nominations list
+                app.nominationsList.scrollIntoView();
             } else {
                 app.modalBox();
             } 
@@ -153,7 +155,7 @@ app.removeNomination = () => {
     });
 }
 
-//function to pop up modal box when user try to add more than 5
+//function to pop up modal box when users try to add more than 5
 app.modalBox = () => {
     const modalAlert = document.getElementById('alert');
     modalAlert.classList.add('activate');
