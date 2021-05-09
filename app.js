@@ -103,7 +103,7 @@ app.nominate = () => {
                 //disable the button if that movie is nominated
                 button.setAttribute('disabled',true)
             } else {
-                alert("You have 5 nominations already");
+                app.modalBox();
             } 
         }
     });
@@ -151,6 +151,16 @@ app.removeNomination = () => {
             app.banner.classList.remove('active');
         }
     });
+}
+
+//function to pop up modal box when user try to add more than 5
+app.modalBox = () => {
+    const modalAlert = document.getElementById('alert');
+    modalAlert.classList.add('activate');
+    const closeButton = document.getElementById('closeButton');
+    closeButton.onclick = () => {
+        modalAlert.classList.remove('activate');
+    }
 }
 
 app.init = () => {

@@ -135,7 +135,51 @@ section:last-child {
     display: block;
 }
 
+/* modal box styles */
+.alert {
+    /* modal hidden by default */
+    visibility: hidden; 
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0,0.6);
+}
+.alertContent {
+    background-color: tomato;
+    border-radius: 3px;
+    margin: 30vh auto;
+    width: 50%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.alertContent p {
+    margin: 0;
+    font-size: 2rem;
+}
+.alertContent .alertText,
+.alertContent .closeButton {
+    color: ivory;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+}
+.closeButton {
+    color: black;
+    cursor: pointer;
+}
+/* modal becomes visible */
+.alert.activate {
+    visibility: visible; 
+}
 
+/* media query start */
 @media (max-width:768px) {
     main {
         flex-direction: column-reverse;
@@ -151,10 +195,12 @@ section:last-child {
         margin-left: 0px;
     }
 }
-
 @media (max-width:502px) {
     h1 {
         font-size: 2rem;
+    }
+    .alertContent {
+        width: 90%;
     }
 }
 @media (max-width:340px) {

@@ -18,14 +18,24 @@
             <label for="searchMovie"><h2>Movie title</h2></label>
             <input type="text" id="searchMovie">
         </form>
+        <!-- modal box to alert that the result not found -->
+        <div id="alert" class="alert">
+            <div class="alertContent">
+                <p class="alertText">You have reached 5 nominations.</p>
+                <p>⛔️</p>
+                <p id="closeButton" class="closeButton">close</p>
+            </div>
+        </div>
     </header>
     <main class="wrapper">
         <section class="searchResults">
             <h2>Results for <span class="searchParameter"></span></h2>
+            <!-- dynamic list goes in this ul -->
             <ul class="resultsList"></ul>
         </section>
         <section class="nominations">
             <h2>Nominations</h2>
+            <!-- dynamic list goes in this ul -->
             <ul class="nominationsList"></ul>
             <div id="banner" class="banner">
                 <p>🌟🏆🌟</p>
