@@ -140,7 +140,7 @@ app.removeNomination = () => {
             //remove the nomination
             this.removeChild(e.target.parentElement);
 
-            //enable nominate button back to that movie
+            //enable nominate button back to that movie when remove from nominations list
             //check if movie match with movie in the results list. if so, then enable the nomination button
             const removedTitle = e.target.parentElement.children[0].textContent;
             [...app.resultsUl.children].forEach( (list) => {
